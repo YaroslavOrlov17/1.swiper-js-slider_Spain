@@ -1,0 +1,254 @@
+/* Custom properties */
+:root {
+  --black: #151515;
+  --black-90: rgba(21, 21, 21, 0.9);
+  --black-75: rgba(21, 21, 21, 0.75);
+  --black-50: rgba(21, 21, 21, 0.5);
+  --bg-1: #e3cfcf;
+  --bg-2: #e9e9e9;
+  --accent: #e36262;
+  --primary-ff: "EB Garamond", Georgia, serif;
+  --secondary-ff: "Montserrat", Helvetica, sans-serif;
+}
+
+/* Typography */
+body {
+  font-family: var(--primary-ff);
+  color: var(--black-90);
+}
+
+h1 {
+  font-size: 58px;
+  line-height: 85px;
+}
+
+h2 {
+  font-size: 45px;
+  line-height: 67px;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 36px;
+  line-height: 55px;
+  font-weight: 400;
+}
+
+p {
+  font-size: 22px;
+  line-height: 36px;
+  color: var(--black-90);
+}
+
+a {
+  color: var(--black);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* Header */
+#main-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  padding: 10rem 4rem;
+}
+
+#main-header img {
+  max-width: 100%;
+  height: auto;
+}
+
+p.intro {
+  font-family: var(--secondary-ff);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--black-50);
+}
+
+/* Sections */
+.padded {
+  padding: 7.5rem;
+}
+
+#about {
+  background-color: var(--bg-1);
+}
+
+#slider-2 {
+  padding-bottom: 7.5rem;
+}
+
+/* Container */
+.container {
+  max-width: 46rem;
+  margin: auto;
+}
+
+.container.wide {
+  max-width: 100%;
+  padding: 0 4rem;
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-2);
+  padding: 4rem;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Swiper */
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 40rem;
+  object-fit: cover;
+}
+
+#swiper-1 .swiper-pagination {
+  margin-bottom: 2rem;
+}
+
+#swiper-1 .swiper-pagination-bullet {
+  opacity: 1;
+  background-color: var(--black-75);
+  width: 0.75rem;
+  height: 0.75rem;
+  margin: 0 0.375rem;
+}
+
+#swiper-1 .swiper-pagination-bullet-active {
+  background-color: var(--accent);
+}
+
+.swiper-slide figure {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-slide figcaption {
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  font-family: var(--secondary-ff);
+  line-height: 29px;
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 1rem 2rem;
+  left: 50%;
+  transform: translate3d(-50%, 100%, 0);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.swiper-slide-active figcaption {
+  transform: translate3d(-50%, 0, 0);
+  opacity: 1;
+}
+
+.swiper-slide figcaption img {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.swiper-custom-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.swiper-custom-nav svg {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.3s ease-in-out;
+}
+
+.swiper-custom-nav svg:hover {
+  opacity: 1;
+}
+
+.swiper-custom-pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  gap: 1rem;
+  font-family: var(--secondary-ff);
+  font-size: 17px;
+  line-height: 29px;
+  font-weight: 500;
+  color: var(--black);
+}
+.swiper-custom-pagination .swiper-pagination-bullet {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background-color: transparent;
+  opacity: 1;
+  text-align: center;
+}
+
+.swiper-custom-pagination .number {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.swiper-custom-pagination .line {
+  opacity: 0.3;
+  height: 0.25rem;
+  width: 0.75rem;
+  background-color: var(--black);
+  display: block;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.swiper-custom-pagination .swiper-pagination-bullet-active .number {
+  opacity: 1;
+}
+
+.swiper-custom-pagination .swiper-pagination-bullet-active .line {
+  width: 2rem;
+  opacity: 1;
+}
+
+/* Responsive */
+@media screen and (max-width: 800px) {
+  .padded,
+  #main-header {
+    padding: 4rem;
+  }
+
+  .swiper-slide img {
+    height: 20rem;
+  }
+
+  .swiper-custom-nav {
+    display: none;
+  }
+  .swiper-slide figcaption {
+    left: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+    background-color: var(--black-90);
+  }
+}
